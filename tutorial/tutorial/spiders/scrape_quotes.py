@@ -8,8 +8,6 @@ class ScrapeQuotesSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        # total_quotes_in_page = len(response.xpath('//span[contains(@class, "text")]/text()'))
-
         for quote in response.xpath('//div[contains(@class, "quote")]'):
             yield {
                 'quote':  response.xpath('span[contains(@class, "text")]/text()').get(),
